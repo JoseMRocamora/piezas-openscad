@@ -42,7 +42,7 @@ difference() {
             // Corte Superior
             translate([-1*excesoCorte, 0, (alturaPieza-alturaSecundaria/3)])
                 union() {
-                    // cilindro secundario        
+                    // cilindro secundario       
                     cylinder(h=alturaSecundaria, r=diametroSecundario/2, $fn=360);
 
                     // Alargamiento cilindro secundario
