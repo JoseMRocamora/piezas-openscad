@@ -3,8 +3,8 @@
 alturaPieza = 40;
 alturaSecundaria = 15;
 diametroPrincipal = 150;
-diametroSecundario = 100;
-excesoCorte = 20;
+diametroSecundario = 111;
+excesoCorte = 28;
 metrica4 = 4;
 metrica9 = 9;
 metrica10 = 10;
@@ -17,20 +17,20 @@ difference() {
     // ------
 
     // Corte principal
-    #translate([excesoCorte, -1*(diametroPrincipal+excesoCorte)/2, -1*(excesoCorte/2)])
+    translate([excesoCorte, -1*(diametroPrincipal+excesoCorte)/2, -1*(excesoCorte/2)])
         cube([diametroPrincipal/2, (diametroPrincipal+excesoCorte), (alturaPieza+excesoCorte)]);
 
     // Corte Inferior
-    #translate([-1*(diametroPrincipal+excesoCorte)/2 , -1*diametroSecundario/2, -1*excesoCorte])
+    translate([-1*(diametroPrincipal+excesoCorte)/2 , -1*diametroSecundario/2, -1*excesoCorte])
         cube([diametroPrincipal, diametroSecundario, (alturaSecundaria+excesoCorte)]);
 
     // Hueco Interno
-    #translate([-1*45, -1*(diametroSecundario-excesoCorte)/2, -1*(excesoCorte/2)])
+    translate([-1*37, -1*(diametroSecundario-excesoCorte)/2, -1*(excesoCorte/2)])
         cube([60, (diametroSecundario-excesoCorte), (alturaPieza+excesoCorte)]);
             
 
     // Corte Superior
-    #translate([-1*excesoCorte, 0, (alturaPieza-alturaSecundaria/3)])
+    translate([-1*(diametroPrincipal-diametroSecundario)/2+5, 0, (alturaPieza-alturaSecundaria/3)])
         union() {
             // cilindro secundario       
             cylinder(h=alturaSecundaria, r=diametroSecundario/2, $fn=360);
@@ -41,8 +41,8 @@ difference() {
         }
 
     // Corte Intermedio
-    #translate([-1*diametroPrincipal/2, -1*diametroSecundario/2, alturaSecundaria-5])
-        cube([diametroSecundario/4, diametroSecundario, excesoCorte]);
+    translate([-1*diametroPrincipal/2, -1*diametroSecundario/2, alturaSecundaria-5])
+        cube([diametroSecundario/4, diametroSecundario, 20]);
 
     // Taladros
     union(){
@@ -51,21 +51,22 @@ difference() {
             cylinder(h=alturaPieza, r=metrica4/2, $fn=100);
 
         // Taladro Metrica 9
-        translate([-1*5, -1*(diametroSecundario-excesoCorte)/2-5, alturaSecundaria/2])
+        translate([-1*3, -1*(diametroSecundario-excesoCorte)/2-5, alturaSecundaria/2])
             cylinder(h=alturaPieza, r=metrica9/2, $fn=100);
 
         // Taladro Metrica 9 (mirror)
         mirror([0, 1, 0])
-            translate([-1*5, -1*(diametroSecundario-excesoCorte)/2-5, alturaSecundaria/2])
+            translate([-1*3, -1*(diametroSecundario-excesoCorte)/2-5, alturaSecundaria/2])
                 cylinder(h=alturaPieza, r=metrica9/2, $fn=100);
 
         // Taladro Metrica 10
-        translate([-1*55, -1*29, 0])
+        translate([-1*50, -1*35, 0])
             cylinder(h=alturaPieza, r=metrica10/2, $fn=100);
 
         // Taladro Metrica 10 (mirror)
         mirror([0,1,0])
-            translate([-1*55, -1*29, 0])
+            translate([-1*50, -1*35, 0])
                 cylinder(h=alturaPieza, r=metrica10/2, $fn=100);
     }
+
 }
