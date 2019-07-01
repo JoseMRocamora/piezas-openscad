@@ -68,15 +68,6 @@ difference() {
         translate([-1*d1/2+10, 0, h2])
             cylinder(h=h1, r=metrica4/2, $fn=100);
 
-        // Taladro Metrica 9
-        translate([-1*3, -1*d2/2+9, h2/2])
-            cylinder(h=h1, r=metrica9/2, $fn=100);
-
-        // Taladro Metrica 9 (mirror)
-        mirror([0, 1, 0])
-            translate([-1*3, -1*d2/2+9, h2/2])
-                cylinder(h=h1, r=metrica9/2, $fn=100);
-
         // Taladro Metrica 10
         translate([-1*47, -1*35, 0])
             cylinder(h=h1, r=metrica10/2, $fn=100);
@@ -84,6 +75,15 @@ difference() {
         // Taladro Metrica 10 (mirror)
         mirror([0,1,0])
             translate([-1*47, -1*35, 0])
+                cylinder(h=h1, r=metrica10/2, $fn=100);
+
+        // Taladro Metrica 10
+        translate([-1*2, -1*d2/2+5, h2/2])
+            cylinder(h=h1, r=metrica10/2, $fn=100);
+
+        // Taladro Metrica 10 (mirror)
+        mirror([0, 1, 0])
+            translate([-1*2, -1*d2/2+5, h2/2])
                 cylinder(h=h1, r=metrica10/2, $fn=100);
     }
 
