@@ -60,7 +60,7 @@ difference() {
 
     // Corte Intermedio
     translate([-1*d1/2, -1*d2/2, h2-5])
-        cube([d2/4, d2, 20]);
+        cube([d1/2+8, d2, 20]);
 
     // Taladros
     union(){
