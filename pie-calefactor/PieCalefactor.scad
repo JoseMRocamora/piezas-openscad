@@ -34,10 +34,6 @@ difference() {
     translate([-1*(d1+d1_10perc)/2 , -1*d2/2, -1*h2_10perc])
         cube([d1, d2, (h2+h2_10perc)]);
 
-    // Hueco Interno
-    //#translate([-1*37, -1*(d2-0)/2, -1*(h1_10perc/2)])
-    //    #cube([60, (d2-0), (h1+h1_10perc)]);
-      
     // Corte Superior
     translate([-1*(d1-d2)/2+5, 0, h1-5]) 
         union() {
@@ -84,11 +80,11 @@ difference() {
                 cylinder(h=h1, r=metrica9/2, $fn=100);
 
         // Taladro Metrica 10
-        #translate([-1*47, -1*35, 0])
+        translate([-1*47, -1*35, 0])
             cylinder(h=h1, r=metrica10/2, $fn=100);
 
         // Taladro Metrica 10 (mirror)
-        #mirror([0,1,0])
+        mirror([0,1,0])
             translate([-1*47, -1*35, 0])
                 cylinder(h=h1, r=metrica10/2, $fn=100);
     }
