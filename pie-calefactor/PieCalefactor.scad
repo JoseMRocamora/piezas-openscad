@@ -9,8 +9,6 @@ h2 = 15;    // Altura Secundaria de la pieza
 d2 = 112;   // Diametro Secundario de la pieza
 h2_10perc = h2 * 0.1;   // 10% de la Altura Principal
 
-excesoCorte = 28;
-
 d3 = 82;    // Diametro Hueco Interior
 
 metrica4 = 4;
@@ -71,12 +69,12 @@ difference() {
             cylinder(h=h1, r=metrica4/2, $fn=100);
 
         // Taladro Metrica 9
-        translate([-1*3, -1*(d2-excesoCorte)/2-5, h2/2])
+        translate([-1*3, -1*d2/2+9, h2/2])
             cylinder(h=h1, r=metrica9/2, $fn=100);
 
         // Taladro Metrica 9 (mirror)
         mirror([0, 1, 0])
-            translate([-1*3, -1*(d2-excesoCorte)/2-5, h2/2])
+            translate([-1*3, -1*d2/2+9, h2/2])
                 cylinder(h=h1, r=metrica9/2, $fn=100);
 
         // Taladro Metrica 10
